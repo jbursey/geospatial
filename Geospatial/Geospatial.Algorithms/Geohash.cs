@@ -11,10 +11,81 @@ namespace Geospatial.Algorithms
 
         public static string FromPoint(Point point, byte precision = 10)
         {
+            if(precision < 1)
+            {
+                precision = 1;
+            }
+
+            if(precision > 200)
+            {
+                precision = 200; // I also love looking at the molecular sturcture of items geospatially o_O
+            }
+
+            double minLat = Constants.MIN_LAT;
+            double minLng = Constants.MIN_LNG;
+            double maxLat = Constants.MAX_LAT;
+            double maxLng = Constants.MAX_LNG;
+
+            string hash = "";            
+            while(hash.Length < precision)
+            {
+                double midLng = (maxLng + minLng) / 2.0;
+                double midLat = (maxLat + minLat) / 2.0;
+
+                // 5bit binary chunks
+                string chunk = "";
+                for(int i = 0; i < 5; i++)
+                {
+                    if(point.X > midLng)
+                    {
+                        minLng = midLng;
+                        chunk += "1";
+                    }
+                    else
+                    {
+                        maxLng = midLng;
+                        chunk += "0";
+                    }
+
+                    if(point.Y > midLat)
+                    {
+                        minLat = midLat;
+                        chunk += "1";
+                    }
+                    else
+                    {
+                        maxLat = midLat;
+                        chunk += "0";
+                    }
+
+
+                    midLng = (maxLng + minLng) / 2.0;
+                    midLat = (maxLat + minLat) / 2.0;
+                    int w = 0;
+                }
+
+                for(int i = 0; i < chunk.Length - 4; i += 5)
+                {
+                    string fiveBits = "";
+                    fiveBits += chunk[i + 0];
+                    fiveBits += chunk[i + 1];
+                    fiveBits += chunk[i + 2];
+                    fiveBits += chunk[i + 3];
+                    fiveBits += chunk[i + 4];
+
+                    int alphabetIndex = FromBinary5String(fiveBits);
+                    char geohashLetter = ALPHABET[alphabetIndex];
+
+                    hash += geohashLetter;
+                }
+
+                int stop = 0;
+            }
+
             return "";
         }
 
-        public static Point FromHash(string hash)
+        public static Point ToPoint(string hash)
         {
             if(String.IsNullOrEmpty(hash))
             {
@@ -136,6 +207,34 @@ namespace Geospatial.Algorithms
             string binStr = new string(binary);
 
             return binStr;
+        }
+
+        public static int FromBinary5String(string bit5)
+        {
+            int val = 0;
+
+            if(bit5[0] == '1')
+            {
+                val |= 1 << 4;
+            }
+            if(bit5[1] == '1')
+            {
+                val |= 1 << 3;
+            }
+            if (bit5[2] == '1')
+            {
+                val |= 1 << 2;
+            }
+            if (bit5[3] == '1')
+            {
+                val |= 1 << 1;
+            }
+            if (bit5[4] == '1')
+            {
+                val |= 1 << 0;
+            }
+
+            return val;
         }
 
     }
