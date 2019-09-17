@@ -8,10 +8,20 @@ namespace Geospatial.Core
     {
         public MBR()
         {
-
+            
         }
 
         public Point Northeast { get; set; }
         public Point Southwest { get; set; }
     }
+
+
+
+    #region 
+    public class std_vector<T>
+    {
+
+    }
+    #endregion
+
 }
