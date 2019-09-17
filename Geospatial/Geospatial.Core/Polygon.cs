@@ -5,7 +5,7 @@ using System.Text;
 namespace Geospatial.Core
 {
     /// <summary>
-    /// This class follows the same structure as a WKB structured polygon
+    /// Follows the well known binary setup
     /// </summary>
     public class Polygon
     {

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Geospatial.Core
 {
+    /// <summary>
+    /// Follows the well known binary setup
+    /// </summary>
     public class MultiPolygon
     {
         public MultiPolygon()
