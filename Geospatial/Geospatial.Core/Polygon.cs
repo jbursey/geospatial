@@ -9,5 +9,34 @@ namespace Geospatial.Core
     /// </summary>
     public class Polygon
     {
+        public Polygon()
+        {
+
+        }
+
+        public bool ContainsPoint(Point p)
+        {
+            return false;
+        }
+
+        public bool ContainsPoly(Polygon poly)
+        {
+            return false;
+        }
+
+        public bool Intersects(Polygon poly)
+        {
+            return false;
+        }
+
+        public double GetArea()
+        {
+            return 0;
+        }
+
+        public MBR GetMBR()
+        {
+            return new MBR();
+        }
     }
 }

@@ -82,7 +82,9 @@ namespace Geospatial.Algorithms
                 int stop = 0;
             }
 
-            return "";
+            hash = hash.Substring(0, precision);
+
+            return hash;
         }
 
         public static Point ToPoint(string hash)

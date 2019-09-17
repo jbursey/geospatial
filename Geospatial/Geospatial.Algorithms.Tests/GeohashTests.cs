@@ -1,5 +1,6 @@
 using Geospatial.Core;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Geospatial.Algorithms.Tests
@@ -40,6 +41,28 @@ namespace Geospatial.Algorithms.Tests
         {
             Point p = new Point(-97.0, 32.0);
             string hash = Geohash.FromPoint(p, 5);
+        }
+
+        [Fact]
+        public void Geohash_Stress()
+        {
+            Random rand = new Random();
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+            List<string> hashes = new List<string>();            
+            for(int i = 0; i < 100; i++)
+            {
+                double x = rand.Next(-179, 179);
+                double y = rand.Next(-85, 85);
+                string hash = Geohash.FromPoint(new Point(x, y), 6);
+                //hashes[i] = hash;
+                hashes.Add(hash);
+            }
+
+            sw.Stop();
+            long ms = sw.ElapsedMilliseconds;            
+
+            int stop = 0;
         }
     }
 }
