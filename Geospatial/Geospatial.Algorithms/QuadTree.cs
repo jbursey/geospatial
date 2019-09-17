@@ -2,7 +2,8 @@
 
 namespace Geospatial.Algorithms
 {
-    public class Class1
+    public class QuadTree
     {
+
     }
 }

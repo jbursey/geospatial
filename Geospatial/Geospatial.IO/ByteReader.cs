@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Geospatial.Projections
+namespace Geospatial.IO
 {
     public class Class1
     {
