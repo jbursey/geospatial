@@ -7,5 +7,6 @@ namespace Geospatial.Core
     public interface ISpatialElement
     {
         bool ContainedWithin(double swX, double swY, double neX, double neY);
+        bool ContainedWithin(Polygon polygon);
     }
 }

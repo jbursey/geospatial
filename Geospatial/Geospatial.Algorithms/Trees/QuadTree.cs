@@ -71,6 +71,29 @@ namespace Geospatial.Algorithms.Trees
                 Items.TrimExcess();
             }
         }
+        
+        public List<T> Query(Polygon polygon)
+        {
+            //check to see if this "cell" touches this polygon
+
+            //--if this cell could touch this polygon then query it
+            List<T> results = new List<T>();
+            if(SubdivisionOccurred)
+            {
+                results.AddRange(_northWest.Query(polygon));
+                results.AddRange(_northEast.Query(polygon));
+                results.AddRange(_southWest.Query(polygon));
+                results.AddRange(_southEast.Query(polygon));
+            }
+            else
+            {
+                foreach(var item in Items)
+                {
+                    
+                }
+            }
+            return results;
+        }
 
         private bool ContainsItem(T p)
         {

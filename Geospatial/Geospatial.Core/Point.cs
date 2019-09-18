@@ -37,5 +37,10 @@ namespace Geospatial.Core
 
             return false;
         }
+
+        public bool ContainedWithin(Polygon polygon)
+        {
+            return polygon.ContainsPoint(this);
+        }
     }
 }

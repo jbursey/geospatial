@@ -102,5 +102,12 @@ namespace Geospatial.Core
 
             return false;
         }
+
+        public bool ContainedWithin(Polygon polygon)
+        {
+            MBR mbr = GetMBR();
+
+            return false;
+        }
     }
 }
