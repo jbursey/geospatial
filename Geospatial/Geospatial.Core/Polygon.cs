@@ -7,11 +7,25 @@ namespace Geospatial.Core
     /// <summary>
     /// Follows the well known binary setup
     /// </summary>
-    public class Polygon
+    public class Polygon : ISpatialElement
     {
         public Polygon()
         {
+            LinearRings = new List<List<Point>>();
+        }
 
+        public List<List<Point>> LinearRings { get; set; }
+        public List<Point> ExteriorRing
+        {
+            get
+            {
+                if (LinearRings.Count > 0)
+                {
+                    return LinearRings[0];
+                }
+
+                return new List<Point>();
+            }
         }
 
         public bool ContainsPoint(Point p)
@@ -36,7 +50,57 @@ namespace Geospatial.Core
 
         public MBR GetMBR()
         {
-            return new MBR();
+            double minX = 99999999999;
+            double minY = 99999999999;
+            double maxX = -99999999999;
+            double maxY = -99999999999;
+
+            MBR mbr = new MBR();
+
+            foreach(var ring in LinearRings)
+            {
+                foreach(var p in ring)
+                {
+                    if(p.X < minX)
+                    {
+                        minX = p.X;
+                    }
+                    if(p.Y < minY)
+                    {
+                        minY = p.Y;
+                    }
+                    if(p.X > maxX)
+                    {
+                        maxX = p.X;
+                    }
+                    if(p.Y > maxY)
+                    {
+                        maxY = p.Y;
+                    }
+
+                }
+            }
+
+            mbr.Southwest = new Point(minX, minY);
+            mbr.Northeast = new Point(maxX, maxY);
+
+            return mbr;
+        }
+
+        public bool ContainedWithin(double swX, double swY, double neX, double neY)
+        {
+            foreach(var ring in LinearRings)
+            {
+                foreach(var p in ring)
+                {
+                    if(swX <= p.X && swY <= p.Y && neX >= p.X && neY >= p.Y)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }

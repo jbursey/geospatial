@@ -2,7 +2,7 @@
 
 namespace Geospatial.Core
 {
-    public struct Point : IEquatable<Point>
+    public struct Point : IEquatable<Point>, ISpatialElement
     {
         public double X { get; set; }
         public double Y { get; set; }
@@ -23,6 +23,16 @@ namespace Geospatial.Core
                 {
                     return true;
                 }
+            }
+
+            return false;
+        }
+
+        public bool ContainedWithin(double swX, double swY, double neX, double neY)
+        {
+            if(X >= swX && Y >= swY && X <= neX && Y <= neY)
+            {
+                return true;
             }
 
             return false;
