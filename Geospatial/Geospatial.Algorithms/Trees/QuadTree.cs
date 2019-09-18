@@ -75,23 +75,34 @@ namespace Geospatial.Algorithms.Trees
         public List<T> Query(Polygon polygon)
         {
             //check to see if this "cell" touches this polygon
+            bool shouldQuery = false;
+            Point se = new Point(_ne.X, _sw.Y);
+            Point nw = new Point(_sw.X, _ne.Y);
+            if(polygon.ContainsPoint(_sw) || polygon.ContainsPoint(se) || polygon.ContainsPoint(_ne) || polygon.ContainsPoint(nw))
+            {
+                shouldQuery = true;
+            }
 
             //--if this cell could touch this polygon then query it
             List<T> results = new List<T>();
-            if(SubdivisionOccurred)
+            if (shouldQuery)
             {
-                results.AddRange(_northWest.Query(polygon));
-                results.AddRange(_northEast.Query(polygon));
-                results.AddRange(_southWest.Query(polygon));
-                results.AddRange(_southEast.Query(polygon));
-            }
-            else
-            {
-                foreach(var item in Items)
+                if (SubdivisionOccurred)
                 {
-                    
+                    results.AddRange(_northWest.Query(polygon));
+                    results.AddRange(_northEast.Query(polygon));
+                    results.AddRange(_southWest.Query(polygon));
+                    results.AddRange(_southEast.Query(polygon));
+                }
+                else
+                {
+                    foreach (var item in Items)
+                    {
+
+                    }
                 }
             }
+
             return results;
         }
 
