@@ -18,5 +18,9 @@ namespace Geospatial.Core
         public const double MERCATOR_MIN_LNG = -180.0;
         public const double MERCATOR_MAX_LAT = 85.051129;
         public const double MERCATOR_MIN_LAT = -85.051129;
+
+        public const double PI_180 = 0.017453292519943295;
+        public const double TO_DEGREES = 57.2957795130823208;
+        public const double PI = 3.141592653589793;
     }
 }

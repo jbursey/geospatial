@@ -4,15 +4,21 @@ using System.Collections.Generic;
 
 namespace Geospatial.Algorithms.Trees
 {
-    public class QuadTree<T> where T : ISpatialElement
+    public class QuadTree<T> where T : IQuadTreeElement
     {
         private Point _sw;
         private Point _ne;
 
+        /// <summary>
+        /// Spatial partitioning quad tree implementation
+        /// </summary>
+        /// <param name="southWest">MBR sw corner</param>
+        /// <param name="northEast">MBR ne corner</param>
+        /// <param name="capacity">How many elements per cell until subdivision occurs</param>
         public QuadTree(Point southWest, Point northEast, uint capacity)
         {
             Items = new List<T>();
-            CellCapacity = capacity; //a cell can contain at most 5 elements, then a subdivision will occur
+            CellCapacity = capacity; //a cell can contain at most N elements, then a subdivision will occur
 
             _sw = southWest;
             _ne = northEast;
@@ -96,9 +102,12 @@ namespace Geospatial.Algorithms.Trees
                 }
                 else
                 {
-                    foreach (var item in Items)
+                    foreach (var item in Items) // could be points, polygons, lines, etc
                     {
-
+                        if(item.ContainsAny(polygon))
+                        {
+                            results.Add(item);
+                        }
                     }
                 }
             }

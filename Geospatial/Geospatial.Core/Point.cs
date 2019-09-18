@@ -2,7 +2,7 @@
 
 namespace Geospatial.Core
 {
-    public struct Point : IEquatable<Point>, ISpatialElement
+    public struct Point : IEquatable<Point>, ISpatialElement, IQuadTreeElement
     {
         public double X { get; set; }
         public double Y { get; set; }
@@ -36,11 +36,16 @@ namespace Geospatial.Core
             }
 
             return false;
-        }
+        }        
 
-        public bool ContainedWithin(Polygon polygon)
+        public bool ContainsAny(Polygon polygon)
         {
-            return polygon.ContainsPoint(this);
+            if (polygon.ContainsPoint(this))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

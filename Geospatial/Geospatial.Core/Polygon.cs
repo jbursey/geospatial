@@ -7,7 +7,7 @@ namespace Geospatial.Core
     /// <summary>
     /// Follows the well known binary setup
     /// </summary>
-    public class Polygon : ISpatialElement
+    public class Polygon : ISpatialElement, IQuadTreeElement
     {
         public Polygon()
         {
@@ -88,7 +88,7 @@ namespace Geospatial.Core
         }
 
         public bool ContainedWithin(double swX, double swY, double neX, double neY)
-        {
+        {            
             foreach(var ring in LinearRings)
             {
                 foreach(var p in ring)
@@ -103,11 +103,25 @@ namespace Geospatial.Core
             return false;
         }
 
-        public bool ContainedWithin(Polygon polygon)
+        /// <summary>
+        /// This will check if the current polygon intersects in anyway with the parameter polygon
+        /// </summary>
+        /// <param name="polygon">The polygon you want to see if it contains any point</param>
+        /// <returns></returns>
+        public bool ContainsAny(Polygon polygon)
         {
-            MBR mbr = GetMBR();
+            foreach (var ring in LinearRings)
+            {
+                foreach (var p in ring)
+                {
+                    if (polygon.ContainsPoint(p))
+                    {
+                        return true;
+                    }
+                }
+            }
 
-            return false;
+            return true;
         }
     }
 }
