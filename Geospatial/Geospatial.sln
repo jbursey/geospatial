@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.IO", "Geospatial
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.Algorithms.Tests", "Geospatial.Algorithms.Tests\Geospatial.Algorithms.Tests.csproj", "{DAD50D5D-8D72-490B-85F9-FED9766BE47F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.Web", "Geospatial.Web\Geospatial.Web.csproj", "{646091A0-79CE-4B07-A39F-EE7C67F8B4E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DAD50D5D-8D72-490B-85F9-FED9766BE47F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAD50D5D-8D72-490B-85F9-FED9766BE47F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAD50D5D-8D72-490B-85F9-FED9766BE47F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{646091A0-79CE-4B07-A39F-EE7C67F8B4E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{646091A0-79CE-4B07-A39F-EE7C67F8B4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{646091A0-79CE-4B07-A39F-EE7C67F8B4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{646091A0-79CE-4B07-A39F-EE7C67F8B4E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
