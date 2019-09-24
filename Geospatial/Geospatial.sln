@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.Core", "Geospatial.Core\Geospatial.Core.csproj", "{2C687F18-81A4-4449-9FA8-49C5B75CE545}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geospatial.Core", "Geospatial.Core\Geospatial.Core.csproj", "{2C687F18-81A4-4449-9FA8-49C5B75CE545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.Algorithms", "Geospatial.Algorithms\Geospatial.Algorithms.csproj", "{848E534E-E67C-4BEE-89EF-627C45BFA382}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geospatial.Algorithms", "Geospatial.Algorithms\Geospatial.Algorithms.csproj", "{848E534E-E67C-4BEE-89EF-627C45BFA382}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.Projections", "Geospatial.Projections\Geospatial.Projections.csproj", "{5F6BCCD1-1AD5-4C9C-8E17-5C0B7BDA4D07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geospatial.Projections", "Geospatial.Projections\Geospatial.Projections.csproj", "{5F6BCCD1-1AD5-4C9C-8E17-5C0B7BDA4D07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.IO", "Geospatial.IO\Geospatial.IO.csproj", "{E2A348B4-65A6-485E-A709-A4F29F1D632B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geospatial.IO", "Geospatial.IO\Geospatial.IO.csproj", "{E2A348B4-65A6-485E-A709-A4F29F1D632B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.Algorithms.Tests", "Geospatial.Algorithms.Tests\Geospatial.Algorithms.Tests.csproj", "{DAD50D5D-8D72-490B-85F9-FED9766BE47F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geospatial.Algorithms.Tests", "Geospatial.Algorithms.Tests\Geospatial.Algorithms.Tests.csproj", "{DAD50D5D-8D72-490B-85F9-FED9766BE47F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.Web", "Geospatial.Web\Geospatial.Web.csproj", "{646091A0-79CE-4B07-A39F-EE7C67F8B4E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geospatial.Web", "Geospatial.Web\Geospatial.Web.csproj", "{646091A0-79CE-4B07-A39F-EE7C67F8B4E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.IO.Tests", "Geospatial.IO.Tests\Geospatial.IO.Tests.csproj", "{233CB042-CC04-48BE-A655-E30CC73FF2EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{646091A0-79CE-4B07-A39F-EE7C67F8B4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{646091A0-79CE-4B07-A39F-EE7C67F8B4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{646091A0-79CE-4B07-A39F-EE7C67F8B4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{233CB042-CC04-48BE-A655-E30CC73FF2EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{233CB042-CC04-48BE-A655-E30CC73FF2EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{233CB042-CC04-48BE-A655-E30CC73FF2EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{233CB042-CC04-48BE-A655-E30CC73FF2EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
