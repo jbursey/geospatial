@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  geospatial.web:
+    image: ${DOCKER_REGISTRY-}geospatialweb
+    build:
+      context: .
+      dockerfile: Geospatial.Web/Dockerfile

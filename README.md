@@ -20,7 +20,7 @@ This is a demo app showcasing raster tile rendering and various usage of the oth
 This is a docker based app and will require you to provide your own mapbox key as an <env> variable. The following command should be ran at the .sln level. Navigate to http:://localhost:9000 to view the project.
 ```
 docker image build -t geospatial.web -f .\Geospatial.Web\Dockerfile .
-docker container run -d -p 9000:80 -e MAPBOX_ACCESS_TOKEN=<your token here> geospatial.web
+docker container run -d -p 9000:80 geospatial.web
 ```
 # How to build the demo outside of Docker
 Navigate to the directory for Geospatial.Web where the package.json file is located. You will need to run

@@ -13,7 +13,17 @@ RUN dotnet build "Geospatial.Web.csproj" -c Release -o /app
 FROM build AS publish
 RUN dotnet publish "Geospatial.Web.csproj" -c Release -o /app
 
+FROM node:8.16.1-alpine AS javascript
+WORKDIR /src
+COPY ./Geospatial.Web/ .
+RUN ls -la
+RUN npm install && npm run build
+RUN ls -la
+
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
+COPY --from=publish /src/census_shp_files ./census_shp_files
+COPY --from=javascript /src/wwwroot/js ./wwwroot/js
+RUN ls -la
 ENTRYPOINT ["dotnet", "Geospatial.Web.dll"]

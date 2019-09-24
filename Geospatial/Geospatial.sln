@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geospatial.Web", "Geospatia
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geospatial.IO.Tests", "Geospatial.IO.Tests\Geospatial.IO.Tests.csproj", "{233CB042-CC04-48BE-A655-E30CC73FF2EA}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1C39F707-EE80-4F91-B1AA-85B3E006B529}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{233CB042-CC04-48BE-A655-E30CC73FF2EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{233CB042-CC04-48BE-A655-E30CC73FF2EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{233CB042-CC04-48BE-A655-E30CC73FF2EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C39F707-EE80-4F91-B1AA-85B3E006B529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C39F707-EE80-4F91-B1AA-85B3E006B529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C39F707-EE80-4F91-B1AA-85B3E006B529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C39F707-EE80-4F91-B1AA-85B3E006B529}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
