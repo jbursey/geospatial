@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="src\components\geospatiallayers.tsx" />
+    <None Remove="src\components\geospatialmap.tsx" />
     <None Remove="src\index.tsx" />
   </ItemGroup>
 
@@ -32,6 +34,13 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="src\index.tsx" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="src\actions\" />
+    <Folder Include="src\containers\" />
+    <Folder Include="src\reducers\" />
   </ItemGroup>
 
 </Project>
