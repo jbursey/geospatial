@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Geospatial.IO
 {
+    /// <summary>
+    /// This class will parse a shp files byte data and extract the spatial objects
+    /// </summary>
     public class ShpReader
     {
         private ByteReader _br;
@@ -15,6 +18,10 @@ namespace Geospatial.IO
 
         }
 
+        /// <summary>
+        /// Parses a shp file byte stream.
+        /// </summary>
+        /// <param name="data">The byte data representing the shp file</param>
         public void Parse(byte[] data)
         {
             _br = new ByteReader(data);
@@ -49,11 +56,14 @@ namespace Geospatial.IO
                     break;
             }
             
-        }
+        }        
 
         public List<Point> OutPoints { get; set; }
         public List<Polygon> OutPolygons { get; set; }
 
+        /// <summary>
+        /// struct representation of shp file header
+        /// </summary>
         public struct ShpHeader
         {
             public int FileCode { get; set; } //big endian
@@ -75,6 +85,9 @@ namespace Geospatial.IO
             public double BoundingBoxMMax { get; set; } //little endian
         }
 
+        /// <summary>
+        /// possible types of data in a shp file
+        /// </summary>
         public enum ShpType
         {
             NullShape = 0,
@@ -93,18 +106,27 @@ namespace Geospatial.IO
             MultiPatch = 31,
         }
 
+        /// <summary>
+        /// struct representation of shp file record object header
+        /// </summary>
         public struct RecordHeader
         {
             public int RecordNumber { get; set; } //big endian
             public int ContentLength { get; set; } //big endian
         }
 
+        /// <summary>
+        /// struct representation of a shp file point object
+        /// </summary>
         public struct RecordPoint
         {
             public double X { get; set; }
             public double Y { get; set; }
         }
 
+        /// <summary>
+        /// struct represenation of a shp file polygon object
+        /// </summary>
         public struct RecordPolygon
         {
             public double BoundingBoxMinX { get; set; }
@@ -118,6 +140,9 @@ namespace Geospatial.IO
 
         }
 
+        /// <summary>
+        /// if ShpType == Polygon
+        /// </summary>
         private void ParsePolygons()
         {
             List<Polygon> polygons = new List<Polygon>();
