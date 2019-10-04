@@ -5,10 +5,20 @@ using System.Text;
 
 namespace Geospatial.Algorithms
 {
+    /// <summary>
+    /// Use this utility to encode points to a geohash and decode geohashes to points.
+    /// </summary>
     public static class Geohash
     {
-        private static string ALPHABET = "0123456789bcdefghjkmnpqrstuvwxyz";
+        //-- this is the standard geohash alphabet for 5bit chunks
+        private const string ALPHABET = "0123456789bcdefghjkmnpqrstuvwxyz";
 
+        /// <summary>
+        /// Will return a geohash the size of the precision parameter
+        /// </summary>
+        /// <param name="point">The point to encode</param>
+        /// <param name="precision">How many digits of precision for the resulting geohash</param>
+        /// <returns></returns>
         public static string FromPoint(Point point, byte precision = 10)
         {
             if(precision < 1)
@@ -87,6 +97,11 @@ namespace Geospatial.Algorithms
             return hash;
         }
 
+        /// <summary>
+        /// Decodes a geohash into the respective point. The longer the hash the more accurate the point.
+        /// </summary>
+        /// <param name="hash">The geohash to decode</param>
+        /// <returns></returns>
         public static Point ToPoint(string hash)
         {
             if(String.IsNullOrEmpty(hash))
@@ -137,6 +152,14 @@ namespace Geospatial.Algorithms
             return new Point(lng, lat);
         }        
 
+        /// <summary>
+        /// Helper method to determine the min max from teh 5bit binary string
+        /// </summary>
+        /// <param name="binaryString"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="finalMin"></param>
+        /// <param name="finalMax"></param>
         private static void FindMinMaxFromBinaryString(string binaryString, double min, double max, out double finalMin, out double finalMax)
         {
             foreach(var c in binaryString)
@@ -158,6 +181,11 @@ namespace Geospatial.Algorithms
             finalMax = max;
         }
 
+        /// <summary>
+        /// Helper method that will return the '01010' 5 bit binary string based in the index int he alphabet.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         private static string ToBinary5(int index)
         {
             /*
@@ -211,7 +239,12 @@ namespace Geospatial.Algorithms
             return binStr;
         }
 
-        public static int FromBinary5String(string bit5)
+        /// <summary>
+        /// Helper method to get the decimal value from a 5 bit binary string representation.
+        /// </summary>
+        /// <param name="bit5"></param>
+        /// <returns></returns>
+        private static int FromBinary5String(string bit5)
         {
             int val = 0;
 
