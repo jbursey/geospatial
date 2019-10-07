@@ -38,39 +38,39 @@ namespace Geospatial.Core.Projections
             return new Point(mercX, mercY);
         }
 
-        private Point? _mercSW;
-        public Point MercatorSW
-        {
-            get
-            {
-                if(!_mercSW.HasValue)
-                {
-                    Point sw = new Point(Constants.MERCATOR_MIN_LNG, Constants.MERCATOR_MIN_LAT);
-                    Point ne = new Point(Constants.MERCATOR_MAX_LNG, Constants.MERCATOR_MAX_LAT);
-                }
+        //private Point? _mercSW;
+        //public Point MercatorSW
+        //{
+        //    get
+        //    {
+        //        if(!_mercSW.HasValue)
+        //        {
+        //            Point sw = new Point(Constants.MERCATOR_MIN_LNG, Constants.MERCATOR_MIN_LAT);
+        //            Point ne = new Point(Constants.MERCATOR_MAX_LNG, Constants.MERCATOR_MAX_LAT);
+        //        }
 
-                return _mercSW.Value;
-            }
-        }
+        //        return _mercSW.Value;
+        //    }
+        //}
 
-        public double EarthWidthMeters()
-        {
-            Point sw = new Point(Constants.MERCATOR_MIN_LNG, Constants.MERCATOR_MIN_LAT);
-            Point ne = new Point(Constants.MERCATOR_MAX_LNG, Constants.MERCATOR_MAX_LAT);
-            sw = Convert(sw);
-            ne = Convert(ne);
+        //public double EarthWidthMeters()
+        //{
+        //    Point sw = new Point(Constants.MERCATOR_MIN_LNG, Constants.MERCATOR_MIN_LAT);
+        //    Point ne = new Point(Constants.MERCATOR_MAX_LNG, Constants.MERCATOR_MAX_LAT);
+        //    sw = Convert(sw);
+        //    ne = Convert(ne);
 
-            return ne.X - sw.X;
-        }
+        //    return ne.X - sw.X;
+        //}
 
-        public double EarthHeightMeters()
-        {
-            Point sw = new Point(Constants.MERCATOR_MIN_LNG, Constants.MERCATOR_MIN_LAT);
-            Point ne = new Point(Constants.MERCATOR_MAX_LNG, Constants.MERCATOR_MAX_LAT);
-            sw = Convert(sw);
-            ne = Convert(ne);
+        //public double EarthHeightMeters()
+        //{
+        //    Point sw = new Point(Constants.MERCATOR_MIN_LNG, Constants.MERCATOR_MIN_LAT);
+        //    Point ne = new Point(Constants.MERCATOR_MAX_LNG, Constants.MERCATOR_MAX_LAT);
+        //    sw = Convert(sw);
+        //    ne = Convert(ne);
 
-            return ne.Y - sw.Y;
-        }
+        //    return ne.Y - sw.Y;
+        //}
     }
 }

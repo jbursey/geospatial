@@ -21,12 +21,9 @@ namespace Geospatial.Core.Projections
         {
             point = _mercatorProj.Convert(point);
 
-            double width = _mercatorProj.EarthWidthMeters();
-            double height = _mercatorProj.EarthHeightMeters();
-
-            double x = point.X + (width / 2.0);
-            double y = point.Y - (height / 2.0);
-            //y = -y;
+            double x = point.X + (Constants.WORLD_WIDTH_METERS / 2.0);
+            double y = point.Y - (Constants.WORLD_HEIGHT_METERS / 2.0);
+            y = -y;
             return new Point(x, y);
         }
     }

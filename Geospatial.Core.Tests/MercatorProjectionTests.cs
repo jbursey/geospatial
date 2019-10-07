@@ -17,13 +17,5 @@ namespace Geospatial.Core.Tests
             int stop = 0;
         }
 
-        [Fact]
-        public void MercatorProjection_Earth_Width()
-        {
-            MercatorProjection proj = new MercatorProjection();
-            double width = proj.EarthWidthMeters();
-
-            int stop = 0;
-        }
     }
 }
