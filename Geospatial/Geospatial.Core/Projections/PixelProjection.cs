@@ -48,8 +48,11 @@ namespace Geospatial.Core.Projections
             int xPixel = (int)(xPixels * xRatio);
             int yPixel = (int)(yPixels * yRatio);
 
-            int actualX = xPixel % TILE_SIZE;
-            int actualY = yPixel % TILE_SIZE;
+            //we now need to decide if this pixel exists on this tile or not.
+            //int actualX = xPixel % TILE_SIZE;
+            //int actualY = yPixel % TILE_SIZE;
+            int actualX = xPixel - (tileX * TILE_SIZE);
+            int actualY = yPixel - (tileY * TILE_SIZE);
 
             return new Point(actualX, actualY);
         }

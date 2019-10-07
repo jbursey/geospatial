@@ -22,27 +22,52 @@ namespace Geospatial.Tiles.Raster
 
             using (Graphics g = Graphics.FromImage(bitmap))
             {
-                
                 foreach(var poly in polygons)
-                {                    
-                    foreach(var ring in poly.LinearRings)
-                    {
-                        List<PointF> points = new List<PointF>();
-                        foreach(var p in ring)
-                        {
-                            Geospatial.Core.Point pixelPoint = _projection.Convert(p, tileX, tileY, zoom);
-                            PointF pf = new PointF((float)pixelPoint.X, (float)pixelPoint.Y);
-                            points.Add(pf);
-                        }
-
-                        g.FillPolygon(new SolidBrush(fillColor), points.ToArray());
-                    }
+                {
+                    RenderPolygon(poly, fillColor, g, tileX, tileY, zoom);
                 }                
             }
 
-            bitmap.Save(@"E:\img.png", System.Drawing.Imaging.ImageFormat.Png);
+            bitmap.Save($@"E:\img_{tileX}_{tileY}_{zoom}.png", System.Drawing.Imaging.ImageFormat.Png);
 
             return null;
+        }
+
+        public byte[] RenderPolygons(List<Polygon> polygons, int tileX, int tileY, int zoom)
+        {
+            Bitmap bitmap = new Bitmap(256, 256, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            Random rand = new Random();
+
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                foreach (var poly in polygons)
+                {
+                    int red = rand.Next(0, 255);
+                    int green = rand.Next(0, 255);
+                    int blue = rand.Next(0, 255);
+                    RenderPolygon(poly, Color.FromArgb(255, red, green, blue), g, tileX, tileY, zoom);
+                }
+            }
+
+            bitmap.Save($@"E:\img_{tileX}_{tileY}_{zoom}.png", System.Drawing.Imaging.ImageFormat.Png);
+
+            return null;
+        }
+
+        private void RenderPolygon(Polygon polygon, Color color, Graphics g, int tileX, int tileY, int zoom)
+        {
+            foreach (var ring in polygon.LinearRings)
+            {
+                List<PointF> points = new List<PointF>();
+                foreach (var p in ring)
+                {
+                    Geospatial.Core.Point pixelPoint = _projection.Convert(p, tileX, tileY, zoom);
+                    PointF pf = new PointF((float)pixelPoint.X, (float)pixelPoint.Y);
+                    points.Add(pf);
+                }
+
+                g.FillPolygon(new SolidBrush(color), points.ToArray());
+            }
         }
     }
 }

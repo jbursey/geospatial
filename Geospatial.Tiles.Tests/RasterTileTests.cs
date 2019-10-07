@@ -12,7 +12,7 @@ namespace Geospatial.Tiles.Tests
         [Fact]
         public void RasterTile_Counties()
         {
-            string path = @"Z:\geospatial\Geospatial\census_shp_files\cb_2018_us_state_5m\cb_2018_us_state_5m.shp";
+            string path = @"Z:\geospatial\Geospatial\census_shp_files\cb_2018_us_county_20m\cb_2018_us_county_20m.shp";
             byte[] data = System.IO.File.ReadAllBytes(path);
 
             ShpReader reader = new ShpReader();
@@ -21,7 +21,11 @@ namespace Geospatial.Tiles.Tests
             List<Polygon> polys = reader.OutPolygons;
 
             RasterTileRenderer renderer = new RasterTileRenderer();
-            renderer.RenderPolygons(polys, System.Drawing.Color.Blue, 3, 6, 4);
+            renderer.RenderPolygons(polys, 0, 0, 1);
+            renderer.RenderPolygons(polys, 6, 13, 5);
+            renderer.RenderPolygons(polys, 7, 13, 5);
+            renderer.RenderPolygons(polys, 8, 13, 5);
+            //renderer.RenderPolygons(polys, System.Drawing.Color.Blue, 0, 0, 1);
         }
     }
 }

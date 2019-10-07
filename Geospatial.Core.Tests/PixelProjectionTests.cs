@@ -14,7 +14,7 @@ namespace Geospatial.Core.Tests
             PixelProjection projection = new PixelProjection();
             Point p = new Point(-97.0, 32.0); //texas dfw area
 
-            Point pixel = projection.Convert(p, 0, 0, 0);
+            Point pixel = projection.Convert(p, 7, 13, 5);
 
             int stop = 0;
         }
