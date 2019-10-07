@@ -23,10 +23,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Geospatial.Tiles\Geospatial.Tiles.csproj" />
     <ProjectReference Include="..\Geospatial.Algorithms\Geospatial.Algorithms.csproj" />
     <ProjectReference Include="..\Geospatial.Core\Geospatial.Core.csproj" />
     <ProjectReference Include="..\Geospatial.IO\Geospatial.IO.csproj" />
