@@ -1,4 +1,7 @@
-# Simple Geospatial Library
+#Build Status
+[![Build Status](https://dev.azure.com/jbursey/geospatial/_apis/build/status/jbursey.geospatial?branchName=master)](https://dev.azure.com/jbursey/geospatial/_build/latest?definitionId=1&branchName=master)
+
+#Simple Geospatial Library
 Simple reusable geospatial functions. Geohash, point in polygon, nearest point, quad trees, etc.
 
 ## Geospatial.Core
