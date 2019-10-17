@@ -3,17 +3,33 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# pipeline
+#   stage
+#     job
+#       steps
+
+name: "Geospatial Build Release"
+
+resources:
+  containers: 
+
+variables: 
+
 trigger:
 - master
 
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - stage: Build Code and Images
+    jobs:
+      - job: Build Geospatial
+        steps:
+          - script: echo Building code and images for Geospatial
+  - stage: Push to ECR
+    jobs:
+      - job: Push Geospatial ECR
+        steps:
+          - script: echo pushing to ecr.....see its there now
