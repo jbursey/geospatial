@@ -18,13 +18,13 @@ pool:
 
 stages:
 
-  - stage: Build Code and Images
+  - stage: 'Build Code and Images'
     jobs:
-      - job: Build Geospatial
+      - job: 'Build Geospatial'
         steps:
           - script: echo Building code and images for Geospatial
-  - stage: Push to ECR
+  - stage: 'Push to ECR'
     jobs:
-      - job: Push Geospatial ECR
+      - job: 'Push Geospatial ECR'
         steps:
           - script: echo pushing to ecr.....see its there now
