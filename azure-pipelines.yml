@@ -8,7 +8,7 @@
 #     job
 #       steps
 
-name: "Geospatial Build Release"
+name: $(Date:yyyyMMdd)$(Rev:.r)
 
 resources:
   containers: 
