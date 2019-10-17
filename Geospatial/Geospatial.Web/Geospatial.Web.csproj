@@ -28,10 +28,10 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Geospatial.Tiles\Geospatial.Tiles.csproj" />
     <ProjectReference Include="..\Geospatial.Algorithms\Geospatial.Algorithms.csproj" />
     <ProjectReference Include="..\Geospatial.Core\Geospatial.Core.csproj" />
     <ProjectReference Include="..\Geospatial.IO\Geospatial.IO.csproj" />
+    <ProjectReference Include="..\Geospatial.Tiles\Geospatial.Tiles.csproj" />
   </ItemGroup>
 
 

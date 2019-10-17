@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Geospatial.IO\Geospatial.IO.csproj" />
     <ProjectReference Include="..\Geospatial.Tiles\Geospatial.Tiles.csproj" />
-    <ProjectReference Include="..\Geospatial\Geospatial.IO\Geospatial.IO.csproj" />
   </ItemGroup>
 
 </Project>

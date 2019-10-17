@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Geospatial\Geospatial.Core\Geospatial.Core.csproj" />
+    <ProjectReference Include="..\Geospatial.Core\Geospatial.Core.csproj" />
   </ItemGroup>
 
 </Project>
