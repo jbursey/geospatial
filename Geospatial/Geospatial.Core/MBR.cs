@@ -14,6 +14,16 @@ namespace Geospatial.Core
         public Point Northeast { get; set; }
         public Point Southwest { get; set; }
 
+        public bool ContainsPoint(Point p)
+        {
+            if(p.X >= Southwest.X && p.X <= Northeast.X && p.Y >= Southwest.Y && p.Y <= Northeast.Y)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public Polygon ToPolygon()
         {
             Polygon p = new Polygon();
@@ -32,14 +42,5 @@ namespace Geospatial.Core
             return p;
         }
     }
-
-
-
-    #region 
-    public class std_vector<T>
-    {
-
-    }
-    #endregion
 
 }

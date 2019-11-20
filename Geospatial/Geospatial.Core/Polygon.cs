@@ -35,6 +35,13 @@ namespace Geospatial.Core
         /// <returns></returns>
         public bool ContainsPoint(Point p)
         {
+            //the point must at least be in the bounding box to continue below
+            MBR mbr = this.GetMBR();
+            if(!mbr.ContainsPoint(p))
+            {
+                return false;
+            }
+
             #region Partial Differential Equation Theory or simple line
             //---Line intersection
             /*
