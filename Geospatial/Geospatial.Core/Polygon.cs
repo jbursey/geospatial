@@ -35,6 +35,7 @@ namespace Geospatial.Core
         /// <returns></returns>
         public bool ContainsPoint(Point p)
         {
+            #region Partial Differential Equation Theory or simple line
             //---Line intersection
             /*
              * Lets consider 2 lines
@@ -73,6 +74,7 @@ namespace Geospatial.Core
              * 
              * Line --> Y = 2X + 1
              */
+            #endregion
 
             Point rayEnd = new Point(p.X + 1000000, p.Y);
             LineSegment ray = new LineSegment(p, rayEnd);
