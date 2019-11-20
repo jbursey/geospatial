@@ -28,9 +28,75 @@ namespace Geospatial.Core
             }
         }
 
+        /// <summary>
+        /// Uses the raycasting algorithm
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public bool ContainsPoint(Point p)
         {
-            return false;
+            //---Line intersection
+            /*
+             * Lets consider 2 lines
+             * Y = X + 1
+             * Y = -5X -2
+             * 
+             * To see if they intersect lets set them equal to each other
+             * X + 1 = -5X - 2
+             * 
+             * Solve for X
+             * 
+             * 6X = -3
+             * X = -1/2
+             * 
+             * Plug back into original equations
+             * 
+             * Y = 1/2
+             * 
+             * These lines cross at (-1/2, 1/2)
+             */
+
+            //---Finding the intercept
+            /*
+             * Equation of a line --> Y = mX + b
+             * 
+             * m = (Y2 - Y1) / (X2 - X1)
+             * 
+             * b = Y - mX
+             * 
+             * Lets consider the 2 points
+             * (1, 3) and (2,5)
+             * 
+             * m = 2
+             * 
+             * b = 3 - 2(1) = 1
+             * 
+             * Line --> Y = 2X + 1
+             */
+
+            Point rayEnd = new Point(p.X + 1000000, p.Y);
+            LineSegment ray = new LineSegment(p, rayEnd);
+            int crossCount = 0;
+            bool itDoes = false;
+
+            foreach(List<Point> ring in this.LinearRings)
+            {
+                for(int i = 0; i < ring.Count - 1; i++)
+                {
+                    Point current = ring[i];
+                    Point next = ring[i + 1];
+                    LineSegment segment = new LineSegment(current, next);
+
+                    //--does the "segment" intersect the "ray"
+                    if(segment.Intersects(ray))
+                    {
+                        ++crossCount;
+                        itDoes = !itDoes;
+                    }
+                }
+            }
+
+            return itDoes;
         }
 
         public bool ContainsPoly(Polygon poly)

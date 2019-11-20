@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geospatial.Tiles", "Geospat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geospatial.Tiles.Tests", "Geospatial.Tiles.Tests\Geospatial.Tiles.Tests.csproj", "{F4D199DF-8FCC-48DD-9B91-25C994EC3B1D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geospatial.Core.Tests", "Geospatial.Core.Tests\Geospatial.Core.Tests.csproj", "{6A2D2CFC-7BEA-411B-B014-E7667002AC86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{F4D199DF-8FCC-48DD-9B91-25C994EC3B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4D199DF-8FCC-48DD-9B91-25C994EC3B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4D199DF-8FCC-48DD-9B91-25C994EC3B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A2D2CFC-7BEA-411B-B014-E7667002AC86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A2D2CFC-7BEA-411B-B014-E7667002AC86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A2D2CFC-7BEA-411B-B014-E7667002AC86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A2D2CFC-7BEA-411B-B014-E7667002AC86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
