@@ -1,7 +1,6 @@
 ﻿import * as React from "react"
 import * as ReactDom from "react-dom"
-import { GeospatialMap } from "./components/geospatialmap";
-import { GeospatialLayers } from "./components/geospatiallayers";
+import {SideNav, Workspace } from "./components/layout/"
 
 export class App extends React.Component<{}, {}>
 {
@@ -11,10 +10,10 @@ export class App extends React.Component<{}, {}>
 
     public render() {
         return (
-            <div>
-                <GeospatialLayers />
-                <GeospatialMap />
-            </div>
+            <React.Fragment>
+                <SideNav />
+                <Workspace />
+            </React.Fragment>
             )
     }
 }

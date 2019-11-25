@@ -31,6 +31,9 @@ namespace Geospatial.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //read in the various shp datasets
+            
+
             services.AddSingleton<RasterTileRenderer>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

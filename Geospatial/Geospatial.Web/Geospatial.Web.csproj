@@ -9,8 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="src\components\geospatiallayers.tsx" />
-    <None Remove="src\components\geospatialmap.tsx" />
+    <None Remove="src\components\layout\index.ts" />
+    <None Remove="src\components\layout\SideNav.tsx" />
+    <None Remove="src\components\layout\Workspace.tsx" />
+    <None Remove="src\components\MenuItem.tsx" />
     <None Remove="src\index.tsx" />
   </ItemGroup>
 
