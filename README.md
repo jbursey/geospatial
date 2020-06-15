@@ -37,4 +37,11 @@ npm run build
 1. Potentiall move projections into the Core project. Transverse mercator coordinates are needed for proper polygon area results using shoelace method.
 2. Unit test for all projects with > 70% code coverage.
 3. Research C# mapbox vector tile implementation / alternative to raster tiles.
-4. 
+4. Update docker-compose.yml to to include elastisearch/kibana
+5. Update docker-compose.yml to include redis
+6. Update geospatial projects to use serilog
+7. Add logging sink support for console out and elastisearch
+8. Persist elastisearch logs using docker volumes
+9. Persist kibana configurations if possible
+10. Add serilog log statements in geospatial to view in kibana/elastisearch index
+
